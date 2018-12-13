@@ -249,18 +249,36 @@
 
     <script>
         
-     var ballenas = [
-        {especie: "Santiago", metros: 45},
-        {especie: "Las Condes", metros: 35},
+        var ballenas = [
+        {especie: "Santiago", metros: 45 },
+        {especie: "las condes", metros: 35 },
         {especie: "Quilicura", metros:11},
         {especie:"Huechuraba", metros:8},
         {especie:"Providencia", metros:1},
  
         ];
-        var coso = d3.select("#chart-2").attr("width", "100%").attr("height", "360").style("background", "RGBA(0, 64, 182, 1.00)");
-        coso.selectAll("rect").data(ballenas).enter().append("rect").attr("x",40).attr("y", function(d, i) { return (i + 1) * 50; }).attr("width", function(d) { return d.metros*7 }).attr("height",30).attr("fill","RGBA(222, 240, 240, 1.00)")
-         coso.selectAll("text").data(ballenas).enter().append("text").text(function(d) {return (d.especie + " (" + d.metros + "%)")}).attr("text-anchor", "start").attr("x", function(d, i) { return (d.metros*7.5)+50 }).attr("y", function(d, i) { return ((i + 1) * 50)+20 }).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white"); 
+        
+        var aqui = d3.select("#chart-2").attr("width", "100%").attr("height", "400").style("background", "RGBA(0, 64, 182, 1.00)");
+        aqui.append("circle").attr("cx",100).attr("cy",200).attr("r",45).attr("fill","white");
+           aqui.append("circle").attr("cx",250).attr("cy",200).attr("r",35).attr("fill","white");
+           aqui.append("circle").attr("cx",350).attr("cy",200).attr("r",11).attr("fill","white");
+           aqui.append("circle").attr("cx",400).attr("cy",200).attr("r",8).attr("fill","white");
+           aqui.append("circle").attr("cx",450).attr("cy",200).attr("r",1).attr("fill","white");
+        
+ 
+ aqui.append("text").text("Santiago 45%").attr("text-anchor", "start").attr("x",50).attr("y",280).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white"); 
+        
+aqui.append("text").text("Las Condes 45%").attr("text-anchor", "start").attr("x",150).attr("y",150).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white");
+        
+aqui.append("text").text("Quilicura 35%").attr("text-anchor", "start").attr("x",250).attr("y",280).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white"); 
+        
+ aqui.append("text").text("Huechuraba 11%").attr("text-anchor", "start").attr("x",340).attr("y",150).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white"); 
+        
+ aqui.append("text").text("Providencia 1%").attr("text-anchor", "start").attr("x",420).attr("y",280).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white"); 
+   
+        
     </script>
+   
 
    
     
