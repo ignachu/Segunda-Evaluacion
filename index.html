@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+<!-- COMMON TAGS -->
+<meta charset="utf-8">
+<title>Importaciones</title>
+    
+<!-- Search Engine -->
+<meta name="description" content="Principales importaciones a Chile">
+<meta name="image" content="https://i.blogs.es/dddd84/cargo00/450_1000.jpg">
+    
+<!-- Schema.org for Google -->
+    <meta itemprop="name" content="Importaciones">
+<meta itemprop="description" content="Principales importaciones a Chile">
+<meta itemprop="image" content="https://i.blogs.es/dddd84/cargo00/450_1000.jpg">
+    
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Importaciones">
+<meta name="og:description" content="Principales importaciones a Chile">
+<meta name="og:type" content="website">
+    
+     <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- Vamos a buscar el CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Vamos a buscar el CSS de Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Vamos por nuestro CSS, basado en https://startbootstrap.com/template-overviews/grayscale/ -->
+    <link href="style.css" rel="stylesheet">
+    <!-- Aquí vamos por el estilo y script del mapa-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+</head>
+
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><span class="titular"></span></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">Paises</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#dataviz">Visualizaciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Este encabezado viene de https://startbootstrap.com/snippets/video-header/ -->
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <!--Favor revisar https://www.w3schools.com/html/html5_video.asp-->
+            <source src="https://ak4.picdn.net/shutterstock/videos/32074804/preview/stock-footage-large-container-ship-at-sea-top-down-aerial.webm" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex text-center h-100">
+                <div class="my-auto w-100 text-white">
+                    <h1 class="display-3 titular"></h1>
+                    <h2>Importaciones ha territorio Chileno</h2>
+                    <p class="pt-3"><a href="#about"><i class="fas fa-3x fa-arrow-alt-circle-down"></i></a></p>
+                </div>
+             </div>
+        </div>
+    </header>
+    <!-- About Section -->
+    <section id="about" class="about-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-white mb-4">Principales paises que exportan ha Chile</h2>
+                    <p class="text-white-50">Chile importa desde todo el globo, los que encabezan esta lista son: China, Estados Unidos, Brasil, Alemania, México. 
+                </div>
+            </div>
+            <img src="media/ipad.png" class="img-fluid" alt="">
+        </div>
+    </section>
+
+    <!-- dataviz Section -->
+    <section id="dataviz" class="dataviz-section bg-light">
+        <div class="container">
+
+            <!-- MAPA -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                <div class="col-xl-8 col-lg-7">
+                    <div id="leaflet"></div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Mapa</h4>
+                        <p class="text-black-50 mb-0"> Los primeros lugares de importaciones lo tienen: </p>
+                           <p class="text-black-50 mb-0"> 1° China con 11,1 miles de millones de dolares. </p>
+                          <p class="text-black-50 mb-0">  2° Estados Unidos con 8,4 miles de millones de dolares. </p>
+                           <p class="text-black-50 mb-0"> 3° Brasil con 4,2 miles de millones de dolares. </p>
+                          <p class="text-black-50 mb-0">  4° Alemania con 2,0 miles de millones de dolares. </p>
+                          <p class="text-black-50 mb-0">  5° México con 1,7 miles de millones de dolares. </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRIMER GRÁFICO -->
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6">
+                    <svg id="chart-1"></svg>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Principal importación.</h4>
+                                <p class="mb-0 text-white-50">El porcentaje de la principal importación por país.</p>
+                                <hr class="d-none d-lg-block mb-0 ml-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEGUNDO GRÁFICO -->
+            <div class="row justify-content-center no-gutters">
+                <div class="col-lg-6">
+                    <svg id="chart-2"></svg>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <h4 class="text-white">Comunas importadoras</h4>
+                                <p class="mb-0 text-white-50">El porcentaje de las principales comunas importadoras de la región metropolitana.</p>
+                                <hr class="d-none d-lg-block mb-0 mr-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50">
+        <div class="container">
+            <p><span class="titular"></span> fue desarrollado por Ignacio Fuentes para Multimedia II</p>
+            <p>Segundo semestre, 2018 · Diseño Gráfico</p>
+            <p>Universidad de Chile</p>
+            <p><a href="#page-top"><i class="fas fa-arrow-alt-circle-up"></i></a></p>
+        </div>
+    </footer>
+
+    <!-- Vamos a buscar algo de JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!--ahora aprovechamos que Bootstrap necesita jQuery, para manipular el DOM-->
+    <script>
+        (function($) {
+            "use strict"; // Start of use strict
+            $(".titular").text("Importación nacional");
+        })(jQuery); // End of use strict
+    </script>
+
+    <!--el tema de bootstrap que usamos necesita este script para funcionar-->
+    <script src="js/theme.js"></script>
+
+    <!--acá comienzan las visualizaciones-->
+
+    <!--primero el mapa-->
+
+     <script>
+        var mymap = L.map('leaflet').setView([20, 0], 2);
+        var georeferencias = [
+        {
+            lugar: "China",
+            coordenadas: [35.86166, 104.1953964],
+            imp: 11.1,
+        }, {
+            lugar: "USA",
+            coordenadas: [38.0000000, -97.0000000],
+            imp: 8.4,
+        }, {
+            lugar: "Brasil",
+            coordenadas: [-10.0000000, -55.0000000],
+            imp: 4.2,
+        }, {
+            lugar: "Alemania",
+            coordenadas: [51.1656914, 10.4515257],
+            imp: 2.0,
+        }, {
+            lugar: "México",
+            coordenadas: [23.0000000, -102.0000000],
+            imp: 1.7,
+        }
+        ];
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            id: 'mapbox.light'
+        }).addTo(mymap);
+        for (var x = 0; x < georeferencias.length; x++) {
+            lat = georeferencias[x].coordenadas[0];
+            lon = georeferencias[x].coordenadas[1];
+            p = georeferencias[x].imp;
+            circle = L.circle([lat, lon], {
+                fillColor: '#000',
+                fillOpacity: 0.5,
+                weight: 0,
+                radius: p * 100000
+            }).addTo(mymap);
+            console.log(lat + "," + lon);
+        }
+    </script>
+
+
+    <!--luego voy a buscar una biblioteca que Data Driven Documents (DDD = d3)-->
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+   
+
+    <!--esto es para un gráfico -->
+
+    <script>
+    
+        var ballenas = [
+        {especie: "Teléfono y otros (China)", metros: 13 },
+        {especie: "Aceites de petroleo (EE.UU.)", metros: 26 },
+        {especie: "Petróleo crudo (Brasil)", metros:35},
+        {especie:"Coches (Alemania)", metros:9},
+        {especie:"Monitores y proyectores (México)", metros:17},
+ 
+        ];
+        var coso = d3.select("#chart-1").attr("width", "100%").attr("height", "360").style("background", "RGBA(0, 64, 182, 1.00)");
+        coso.selectAll("rect").data(ballenas).enter().append("rect").attr("x",40).attr("y", function(d, i) { return (i + 1) * 50; }).attr("width", function(d) { return d.metros*7 }).attr("height",30).attr("fill","RGBA(222, 240, 240, 1.00)")
+         coso.selectAll("text").data(ballenas).enter().append("text").text(function(d) {return (d.especie + " (" + d.metros + "%)")}).attr("text-anchor", "start").attr("x", function(d, i) { return (d.metros*7.5)+50 }).attr("y", function(d, i) { return ((i + 1) * 50)+20 }).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white"); 
+   
+    </script>
+
+    <!--esto es para otro gráfico -->
+
+    <script>
+        
+     var ballenas = [
+        {especie: "Santiago", metros: 45},
+        {especie: "Las Condes", metros: 35},
+        {especie: "Quilicura", metros:11},
+        {especie:"Huechuraba", metros:8},
+        {especie:"Providencia", metros:1},
+ 
+        ];
+        var coso = d3.select("#chart-2").attr("width", "100%").attr("height", "360").style("background", "RGBA(0, 64, 182, 1.00)");
+        coso.selectAll("rect").data(ballenas).enter().append("rect").attr("x",40).attr("y", function(d, i) { return (i + 1) * 50; }).attr("width", function(d) { return d.metros*7 }).attr("height",30).attr("fill","RGBA(222, 240, 240, 1.00)")
+         coso.selectAll("text").data(ballenas).enter().append("text").text(function(d) {return (d.especie + " (" + d.metros + "%)")}).attr("text-anchor", "start").attr("x", function(d, i) { return (d.metros*7.5)+50 }).attr("y", function(d, i) { return ((i + 1) * 50)+20 }).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white"); 
+    </script>
+
+   
+    
+    
+</body>
+
+</html>
